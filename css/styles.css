@@ -1,0 +1,173 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.time-container {
+    margin: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+#top-time {
+    top: 5%;
+}
+
+#bottom-time {
+    bottom: 1%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.time-zone, .initial-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+    transition: color 0.2s ease-in-out;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+.time {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.solar-system {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 100px 0;
+    z-index: 1;
+}
+
+.sun {
+    width: 150px;
+    height: 150px;
+    background-image: radial-gradient(circle at 30% 30%, #FEF5A2, #FDB813 70%);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.earth {
+    width: 50px;
+    height: 50px;
+    background-image: radial-gradient(circle at 20% 20%, #fff, #0077D9 20%);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center 250px;
+    animation: earthOrbit 30s infinite linear;
+    z-index: 3;
+}
+
+.moon {
+    width: 15px;
+    height: 15px;
+    background-image: radial-gradient(circle at 70% 40%, #bbb, #ddd 30%);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center 70px;
+    animation: moonOrbit 7.5s infinite linear;
+    z-index: 4;
+}
+
+.shooting-star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: white;
+    border-radius: 50%;
+    animation: shootStar 1.5s linear forwards;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+@keyframes shootStar {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(100px, 100px);
+    }
+}
+
+.initial-name {
+    font-weight: bold;
+}
+
+#nicko-time {
+    color: blue;
+}
+
+#sunyoung-time {
+    color: pink;
+}
+
+
+@keyframes earthOrbit {
+    0% {
+        transform: rotate(0deg) translate(250px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translate(250px) rotate(-360deg);
+    }
+}
+
+@keyframes moonOrbit {
+    0% {
+        transform: rotate(0deg) translate(70px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translate(70px) rotate(-360deg);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .solar-system {
+        width: 100px;
+        height: 100px;
+    }
+
+    .sun {
+        width: 100px;
+        height: 100px;
+    }
+
+    .earth {
+        transform-origin: center 200px;
+    }
+}
